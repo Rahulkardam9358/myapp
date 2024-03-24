@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  postgresdb1:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: authentication_db_container
+    volumes:
+     - authentication-db-data:/var/lib/postgresql/data
+
+  postgresdb2:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: listings_db_container
+    volumes:
+     - listings-db-data:/var/lib/postgresql/data
+
+  backend_listings:
+    build:
+      context: .
+    volumes:
+      - .:/myapp
+    ports:
+      - 8000:8000
+    image: myapp:dev
+    container_name: myapp_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+     - .env
+    depends_on:
+      - postgresdb1
+      - postgresdb2
+
+volumes:
+  authentication-db-data:
+  listings-db-data:
