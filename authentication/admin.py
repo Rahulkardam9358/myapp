@@ -32,7 +32,7 @@ class UserAdmin(BaseAdmin):
             },
         ),
     )
-    list_display = ("email", "name", "is_staff",)
+    list_display = ("email", "name", "is_staff", "is_realtor",)
     search_fields = ("name", "email")
     ordering = ("email",)
 
