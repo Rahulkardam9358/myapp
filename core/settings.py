@@ -163,7 +163,7 @@ REST_FRAMEWORK = {
     )
 }
 
-SIMPLEJWT = {
+SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "AUTH_HEADER_TYPES": ("Bearer",),
@@ -184,7 +184,7 @@ STATIC_URL = AWS_S3_STATIC_URL
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Media files (user-uploaded content)
-AWS_S3_MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
+AWS_S3_MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
 MEDIA_URL = AWS_S3_MEDIA_URL
 
 # *************************************** Customization End Here **********************************

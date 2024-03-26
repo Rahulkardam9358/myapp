@@ -59,7 +59,7 @@ class Image(models.Model):
         on_delete=models.CASCADE, 
         related_name='images'
     )
-    image = models.ImageField(upload_to='listings/')
+    image = models.ImageField(upload_to='media/listings/')
 
     def __str__(self) -> str:
         return f'Image | {self.id}'
