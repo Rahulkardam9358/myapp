@@ -1,8 +1,6 @@
-from django.shortcuts import render
-from rest_framework import viewsets, mixins, response, permissions, views
+from rest_framework import viewsets, mixins, response, permissions
 from authentication.serializers import UserCreateSerializer, UserCreateRealtorSerializer, UserGetSerializer
 from authentication.models import User
-from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
